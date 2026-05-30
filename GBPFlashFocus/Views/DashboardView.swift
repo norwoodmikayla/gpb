@@ -7,7 +7,7 @@ struct DashboardView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 18) {
-                    HeaderBar(title: "GBP Flash Focus", subtitle: "Daily recall workout")
+                    HeaderBar(title: "GPB Flash Focus", subtitle: "Daily recall workout")
 
                     HStack(spacing: 12) {
                         ProgressRing(value: store.stats.targetProgress, label: "today")

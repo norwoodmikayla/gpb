@@ -15,7 +15,7 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
     }
 
     public func makeCoordinator() -> Coordinator {
-        Coordinator(session: session)
+        Coordinator(configuration: configuration, session: session)
     }
 
     public func makeUIView(context: Context) -> WKWebView {
@@ -50,11 +50,14 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
         coordinator.session.webView = nil
     }
 
-    public final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, UIDocumentPickerDelegate {
+    @MainActor
+    public final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        private let configuration: AnalyticsConfiguration
         fileprivate let session: AnalyticsBrowserSessionModel
         private var fileSelectionHandler: (@MainActor @Sendable ([URL]?) -> Void)?
 
-        init(session: AnalyticsBrowserSessionModel) {
+        init(configuration: AnalyticsConfiguration, session: AnalyticsBrowserSessionModel) {
+            self.configuration = configuration
             self.session = session
         }
 
@@ -71,6 +74,7 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
                 session.errorMessage = nil
                 session.refreshNavigationState()
                 AnalyticsBrowserRuntime.activateGameAudio()
+                _ = try? await webView.evaluateJavaScript("window.dispatchEvent(new Event('focus'));")
             }
         }
 
@@ -79,6 +83,7 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
                 session.isLoading = false
                 session.refreshNavigationState()
                 AnalyticsBrowserRuntime.activateGameAudio()
+                _ = try? await webView.evaluateJavaScript("window.dispatchEvent(new Event('pageshow')); window.dispatchEvent(new Event('focus'));")
             }
         }
 
@@ -153,18 +158,29 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
             fileSelectionHandler?(nil)
             fileSelectionHandler = completionHandler
 
-            let picker = makeDocumentPicker(parameters: parameters)
-            picker.delegate = self
-            picker.allowsMultipleSelection = parameters.allowsMultipleSelection
-            picker.modalPresentationStyle = .formSheet
-
             guard let presenter = webView.analyticsTopPresenter() else {
                 fileSelectionHandler = nil
                 completionHandler(nil)
                 return
             }
 
-            presenter.present(picker, animated: true)
+            presentUploadSourcePicker(from: presenter, webView: webView, parameters: parameters)
+        }
+
+        @available(iOS 15.0, *)
+        public func webView(
+            _ webView: WKWebView,
+            requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+            initiatedByFrame frame: WKFrameInfo,
+            type: WKMediaCaptureType,
+            decisionHandler: @escaping @MainActor @Sendable (WKPermissionDecision) -> Void
+        ) {
+            guard isTrustedMediaCaptureHost(origin.host) else {
+                decisionHandler(.prompt)
+                return
+            }
+
+            decisionHandler(.grant)
         }
 
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
@@ -176,6 +192,79 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
             let copiedURLs = urls.compactMap(copyToTemporaryUploadDirectory)
             fileSelectionHandler?(copiedURLs.isEmpty ? nil : copiedURLs)
             fileSelectionHandler = nil
+        }
+
+        public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true) { [weak self] in
+                self?.fileSelectionHandler?(nil)
+                self?.fileSelectionHandler = nil
+            }
+        }
+
+        public func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+        ) {
+            let selectedURL = uploadURL(from: info)
+            picker.dismiss(animated: true) { [weak self] in
+                self?.fileSelectionHandler?(selectedURL.map { [$0] })
+                self?.fileSelectionHandler = nil
+            }
+        }
+
+        @available(iOS 18.4, *)
+        private func presentUploadSourcePicker(
+            from presenter: UIViewController,
+            webView: WKWebView,
+            parameters: WKOpenPanelParameters
+        ) {
+            let alert = UIAlertController(title: "Choose Upload Source", message: nil, preferredStyle: .actionSheet)
+
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                alert.addAction(UIAlertAction(title: "Camera", style: .default) { [weak self, weak presenter] _ in
+                    guard let self, let presenter else { return }
+                    self.presentImagePicker(sourceType: .camera, from: presenter)
+                })
+            }
+
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                alert.addAction(UIAlertAction(title: "Photo Library", style: .default) { [weak self, weak presenter] _ in
+                    guard let self, let presenter else { return }
+                    self.presentImagePicker(sourceType: .photoLibrary, from: presenter)
+                })
+            }
+
+            alert.addAction(UIAlertAction(title: "Files", style: .default) { [weak self, weak presenter] _ in
+                guard let self, let presenter else { return }
+                let picker = self.makeDocumentPicker(parameters: parameters)
+                picker.delegate = self
+                picker.allowsMultipleSelection = parameters.allowsMultipleSelection
+                picker.modalPresentationStyle = .formSheet
+                presenter.present(picker, animated: true)
+            })
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
+                self?.fileSelectionHandler?(nil)
+                self?.fileSelectionHandler = nil
+            })
+
+            if let popover = alert.popoverPresentationController {
+                popover.sourceView = webView
+                popover.sourceRect = CGRect(x: webView.bounds.midX, y: webView.bounds.midY, width: 1, height: 1)
+                popover.permittedArrowDirections = []
+            }
+
+            presenter.present(alert, animated: true)
+        }
+
+        private func presentImagePicker(sourceType: UIImagePickerController.SourceType, from presenter: UIViewController) {
+            let picker = UIImagePickerController()
+            picker.sourceType = sourceType
+            picker.delegate = self
+            picker.allowsEditing = false
+            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: sourceType) ?? ["public.image"]
+            picker.modalPresentationStyle = .fullScreen
+            presenter.present(picker, animated: true)
         }
 
         @available(iOS 18.4, *)
@@ -219,9 +308,47 @@ public struct AnalyticsBrowserContainer: UIViewRepresentable {
             }
         }
 
+        private func uploadURL(from info: [UIImagePickerController.InfoKey: Any]) -> URL? {
+            if let mediaURL = info[.mediaURL] as? URL {
+                return copyToTemporaryUploadDirectory(mediaURL)
+            }
+
+            if let imageURL = info[.imageURL] as? URL {
+                return copyToTemporaryUploadDirectory(imageURL)
+            }
+
+            guard let image = info[.originalImage] as? UIImage,
+                  let data = image.jpegData(compressionQuality: 0.92) else {
+                return nil
+            }
+
+            let directoryURL = FileManager.default.temporaryDirectory
+                .appendingPathComponent("analytics-file-uploads", isDirectory: true)
+            let destinationURL = directoryURL
+                .appendingPathComponent(UUID().uuidString)
+                .appendingPathExtension("jpg")
+
+            do {
+                try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+                try data.write(to: destinationURL, options: .atomic)
+                return destinationURL
+            } catch {
+                return nil
+            }
+        }
+
         private func shouldOpenExternally(_ url: URL) -> Bool {
             guard let scheme = url.scheme?.lowercased() else { return false }
             return !["http", "https", "file", "about"].contains(scheme)
+        }
+
+        private func isTrustedMediaCaptureHost(_ host: String) -> Bool {
+            let normalizedHost = host.lowercased()
+            let appHost = configuration.initialURL.host?.lowercased()
+            guard normalizedHost.isEmpty == false else { return false }
+            guard let appHost, appHost.isEmpty == false else { return true }
+
+            return normalizedHost == appHost || normalizedHost.hasSuffix(".\(appHost)")
         }
 
         @MainActor

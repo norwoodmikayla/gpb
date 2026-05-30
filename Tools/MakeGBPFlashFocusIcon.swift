@@ -58,7 +58,7 @@ func drawMark(size: CGFloat, includeBackground: Bool) -> NSImage {
 
     let titleFont = NSFont.systemFont(ofSize: size * 0.135, weight: .black)
     let subFont = NSFont.systemFont(ofSize: size * 0.052, weight: .medium)
-    ("GBP" as NSString).draw(
+    ("GPB" as NSString).draw(
         at: CGPoint(x: size * 0.56, y: size * 0.52),
         withAttributes: [.font: titleFont, .foregroundColor: color(247, 255, 242)]
     )

@@ -9,7 +9,7 @@ struct BrandMark: View {
             .scaledToFit()
             .frame(width: size, height: size)
             .shadow(color: FocusColor.gold.opacity(0.35), radius: size * 0.18, x: 0, y: size * 0.08)
-            .accessibilityLabel("GBP Flash Focus mark")
+            .accessibilityLabel("GPB Flash Focus mark")
     }
 }
 

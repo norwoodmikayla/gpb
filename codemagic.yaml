@@ -1,6 +1,6 @@
 workflows:
   ios-testflight:
-    name: GBP Flash Focus iOS TestFlight
+    name: GPB Flash Focus iOS TestFlight
     max_build_duration: 120
     instance_type: mac_mini_m2
 

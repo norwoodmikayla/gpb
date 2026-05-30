@@ -39,7 +39,7 @@ private struct OnboardingView: View {
             Spacer(minLength: 24)
             BrandMark(size: 96)
             VStack(spacing: 8) {
-                Text("GBP Flash Focus")
+                Text("GPB Flash Focus")
                     .font(.system(size: 38, weight: .black, design: .rounded))
                     .foregroundStyle(FocusColor.white)
                     .multilineTextAlignment(.center)

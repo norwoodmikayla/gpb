@@ -57,7 +57,7 @@ struct SettingsView: View {
                     HStack {
                         Text("Name")
                         Spacer()
-                        Text("GBP Flash Focus")
+                        Text("GPB Flash Focus")
                             .foregroundStyle(FocusColor.gold)
                     }
                     HStack {

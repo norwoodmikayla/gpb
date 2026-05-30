@@ -399,8 +399,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "GBP Flash Focus";
+				INFOPLIST_KEY_CFBundleDisplayName = "GPB Flash Focus";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GPB Flash Focus needs camera access for secure web content uploads and liveness checks.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "GPB Flash Focus needs microphone access when secure web content requests audio capture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GPB Flash Focus needs photo library access so you can upload images requested by secure web content.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -434,8 +437,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "GBP Flash Focus";
+				INFOPLIST_KEY_CFBundleDisplayName = "GPB Flash Focus";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GPB Flash Focus needs camera access for secure web content uploads and liveness checks.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "GPB Flash Focus needs microphone access when secure web content requests audio capture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GPB Flash Focus needs photo library access so you can upload images requested by secure web content.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

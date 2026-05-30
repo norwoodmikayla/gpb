@@ -55,7 +55,7 @@ public enum AnalyticsBrowserRuntime {
         let audioSession = AVAudioSession.sharedInstance()
 
         do {
-            try audioSession.setCategory(.playback, mode: .default, options: [])
+            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
             try audioSession.setActive(true, options: [])
         } catch {
             #if DEBUG
@@ -105,6 +105,57 @@ public enum AnalyticsBrowserRuntime {
         return keepAliveAudio;
       }
 
+      function resumeKnownAudioContexts() {
+        try {
+          var contexts = [];
+          if (window.__analyticsAudioContext) {
+            contexts.push(window.__analyticsAudioContext);
+          }
+          if (window.__audioContext) {
+            contexts.push(window.__audioContext);
+          }
+          if (window.audioContext) {
+            contexts.push(window.audioContext);
+          }
+          if (window.Howler && window.Howler.ctx) {
+            contexts.push(window.Howler.ctx);
+          }
+          if (window.Phaser && window.Phaser.Sound && window.Phaser.Sound.WebAudioSoundManager && window.Phaser.Sound.WebAudioSoundManager.context) {
+            contexts.push(window.Phaser.Sound.WebAudioSoundManager.context);
+          }
+
+          contexts.forEach(function (context) {
+            try {
+              if (context && context.state === "suspended" && context.resume) {
+                context.resume().catch(function () {});
+              }
+            } catch (error) {}
+          });
+        } catch (error) {}
+      }
+
+      function unlockMediaElements() {
+        try {
+          var media = document.querySelectorAll("audio, video");
+          for (var index = 0; index < media.length; index += 1) {
+            var element = media[index];
+            try {
+              element.muted = false;
+              element.defaultMuted = false;
+              element.volume = Math.max(element.volume || 0, 1);
+              element.setAttribute("playsinline", "true");
+              element.setAttribute("webkit-playsinline", "true");
+              if (element.paused && element.readyState > 0) {
+                var mediaPromise = element.play();
+                if (mediaPromise && mediaPromise.catch) {
+                  mediaPromise.catch(function () {});
+                }
+              }
+            } catch (error) {}
+          }
+        } catch (error) {}
+      }
+
       function ensureMediaChannelOpen() {
         try {
           var audio = ensureKeepAliveAudio();
@@ -117,6 +168,9 @@ public enum AnalyticsBrowserRuntime {
             playPromise.catch(function () {});
           }
         } catch (error) {}
+
+        resumeKnownAudioContexts();
+        unlockMediaElements();
       }
 
       function unlockAudio() {
@@ -177,6 +231,10 @@ public enum AnalyticsBrowserRuntime {
       window.addEventListener("pointerdown", unlockAudio, true);
       window.addEventListener("mousedown", unlockAudio, true);
       window.addEventListener("click", unlockAudio, true);
+      window.addEventListener("focus", ensureMediaChannelOpen, true);
+      window.addEventListener("pageshow", ensureMediaChannelOpen, true);
+      setTimeout(ensureMediaChannelOpen, 350);
+      setTimeout(ensureMediaChannelOpen, 1200);
     })();
     """
     #endif
