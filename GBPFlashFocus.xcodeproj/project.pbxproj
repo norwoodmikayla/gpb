@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B0001012C00000100000001 /* GBPFlashFocusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002012C00000100000001 /* GBPFlashFocusApp.swift */; };
+		7B0001022C00000100000001 /* FocusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002022C00000100000001 /* FocusStore.swift */; };
+		7B0001032C00000100000001 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002032C00000100000001 /* SampleData.swift */; };
+		7B0001042C00000100000001 /* FocusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002042C00000100000001 /* FocusModels.swift */; };
+		7B0001052C00000100000001 /* FocusTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002052C00000100000001 /* FocusTheme.swift */; };
+		7B0001062C00000100000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002062C00000100000001 /* ContentView.swift */; };
+		7B0001072C00000100000001 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002072C00000100000001 /* Components.swift */; };
+		7B0001082C00000100000001 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002082C00000100000001 /* DashboardView.swift */; };
+		7B0001092C00000100000001 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0002092C00000100000001 /* TrainingView.swift */; };
+		7B00010A2C00000100000001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00020A2C00000100000001 /* HistoryView.swift */; };
+		7B00010B2C00000100000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00020B2C00000100000001 /* SettingsView.swift */; };
+		7B00010C2C00000100000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B00020C2C00000100000001 /* Assets.xcassets */; };
+		7B00A1012C00000100000001 /* AnalyticsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1012C00000100000001 /* AnalyticsConfiguration.swift */; };
+		7B00A1022C00000100000001 /* AnalyticsDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1022C00000100000001 /* AnalyticsDecision.swift */; };
+		7B00A1032C00000100000001 /* AnalyticsBrowserRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1032C00000100000001 /* AnalyticsBrowserRuntime.swift */; };
+		7B00A1042C00000100000001 /* AnalyticsRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1042C00000100000001 /* AnalyticsRequestClient.swift */; };
+		7B00A1052C00000100000001 /* AnalyticsAudioActivationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1052C00000100000001 /* AnalyticsAudioActivationModifier.swift */; };
+		7B00A1062C00000100000001 /* AnalyticsBrowserContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1062C00000100000001 /* AnalyticsBrowserContainer.swift */; };
+		7B00A1072C00000100000001 /* AnalyticsBrowserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1072C00000100000001 /* AnalyticsBrowserScreen.swift */; };
+		7B00A1082C00000100000001 /* AnalyticsLaunchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1082C00000100000001 /* AnalyticsLaunchPanel.swift */; };
+		7B00A1092C00000100000001 /* AnalyticsRootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B1092C00000100000001 /* AnalyticsRootFlow.swift */; };
+		7B00A10A2C00000100000001 /* AnalyticsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00B10A2C00000100000001 /* AnalyticsTheme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B0000012C00000100000001 /* GBPFlashFocus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBPFlashFocus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0002012C00000100000001 /* GBPFlashFocusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBPFlashFocusApp.swift; sourceTree = "<group>"; };
+		7B0002022C00000100000001 /* FocusStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusStore.swift; sourceTree = "<group>"; };
+		7B0002032C00000100000001 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		7B0002042C00000100000001 /* FocusModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusModels.swift; sourceTree = "<group>"; };
+		7B0002052C00000100000001 /* FocusTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTheme.swift; sourceTree = "<group>"; };
+		7B0002062C00000100000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7B0002072C00000100000001 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		7B0002082C00000100000001 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7B0002092C00000100000001 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
+		7B00020A2C00000100000001 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		7B00020B2C00000100000001 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7B00020C2C00000100000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B00B1012C00000100000001 /* AnalyticsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsConfiguration.swift; sourceTree = "<group>"; };
+		7B00B1022C00000100000001 /* AnalyticsDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsDecision.swift; sourceTree = "<group>"; };
+		7B00B1032C00000100000001 /* AnalyticsBrowserRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBrowserRuntime.swift; sourceTree = "<group>"; };
+		7B00B1042C00000100000001 /* AnalyticsRequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRequestClient.swift; sourceTree = "<group>"; };
+		7B00B1052C00000100000001 /* AnalyticsAudioActivationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAudioActivationModifier.swift; sourceTree = "<group>"; };
+		7B00B1062C00000100000001 /* AnalyticsBrowserContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBrowserContainer.swift; sourceTree = "<group>"; };
+		7B00B1072C00000100000001 /* AnalyticsBrowserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBrowserScreen.swift; sourceTree = "<group>"; };
+		7B00B1082C00000100000001 /* AnalyticsLaunchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLaunchPanel.swift; sourceTree = "<group>"; };
+		7B00B1092C00000100000001 /* AnalyticsRootFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRootFlow.swift; sourceTree = "<group>"; };
+		7B00B10A2C00000100000001 /* AnalyticsTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTheme.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B0003012C00000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B0004012C00000100000001 = {
+			isa = PBXGroup;
+			children = (
+				7B0004022C00000100000001 /* GBPFlashFocus */,
+				7B0004032C00000100000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B0004022C00000100000001 /* GBPFlashFocus */ = {
+			isa = PBXGroup;
+			children = (
+				7B0004042C00000100000001 /* App */,
+				7B0004052C00000100000001 /* Models */,
+				7B0004062C00000100000001 /* Theme */,
+				7B0004072C00000100000001 /* Views */,
+				7B00B0012C00000100000001 /* AnalyticsKit */,
+				7B00020C2C00000100000001 /* Assets.xcassets */,
+			);
+			path = GBPFlashFocus;
+			sourceTree = "<group>";
+		};
+		7B0004032C00000100000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B0000012C00000100000001 /* GBPFlashFocus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B0004042C00000100000001 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7B0002012C00000100000001 /* GBPFlashFocusApp.swift */,
+				7B0002022C00000100000001 /* FocusStore.swift */,
+				7B0002032C00000100000001 /* SampleData.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7B0004052C00000100000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B0002042C00000100000001 /* FocusModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7B0004062C00000100000001 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				7B0002052C00000100000001 /* FocusTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		7B0004072C00000100000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B0002062C00000100000001 /* ContentView.swift */,
+				7B0002072C00000100000001 /* Components.swift */,
+				7B0002082C00000100000001 /* DashboardView.swift */,
+				7B0002092C00000100000001 /* TrainingView.swift */,
+				7B00020A2C00000100000001 /* HistoryView.swift */,
+				7B00020B2C00000100000001 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B00B0012C00000100000001 /* AnalyticsKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B00B0022C00000100000001 /* Core */,
+				7B00B0032C00000100000001 /* Runtime */,
+				7B00B0042C00000100000001 /* UI */,
+			);
+			path = AnalyticsKit;
+			sourceTree = "<group>";
+		};
+		7B00B0022C00000100000001 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7B00B1012C00000100000001 /* AnalyticsConfiguration.swift */,
+				7B00B1022C00000100000001 /* AnalyticsDecision.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7B00B0032C00000100000001 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				7B00B1032C00000100000001 /* AnalyticsBrowserRuntime.swift */,
+				7B00B1042C00000100000001 /* AnalyticsRequestClient.swift */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		7B00B0042C00000100000001 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7B00B1052C00000100000001 /* AnalyticsAudioActivationModifier.swift */,
+				7B00B1062C00000100000001 /* AnalyticsBrowserContainer.swift */,
+				7B00B1072C00000100000001 /* AnalyticsBrowserScreen.swift */,
+				7B00B1082C00000100000001 /* AnalyticsLaunchPanel.swift */,
+				7B00B1092C00000100000001 /* AnalyticsRootFlow.swift */,
+				7B00B10A2C00000100000001 /* AnalyticsTheme.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B0005012C00000100000001 /* GBPFlashFocus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B0008012C00000100000001 /* Build configuration list for PBXNativeTarget "GBPFlashFocus" */;
+			buildPhases = (
+				7B0006012C00000100000001 /* Sources */,
+				7B0003012C00000100000001 /* Frameworks */,
+				7B0006022C00000100000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GBPFlashFocus;
+			packageProductDependencies = (
+			);
+			productName = GBPFlashFocus;
+			productReference = 7B0000012C00000100000001 /* GBPFlashFocus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B0007012C00000100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					7B0005012C00000100000001 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = 7B0007022C00000100000001 /* Build configuration list for PBXProject "GBPFlashFocus" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B0004012C00000100000001;
+			packageReferences = (
+			);
+			productRefGroup = 7B0004032C00000100000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B0005012C00000100000001 /* GBPFlashFocus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B0006022C00000100000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B00010C2C00000100000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B0006012C00000100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B0001012C00000100000001 /* GBPFlashFocusApp.swift in Sources */,
+				7B0001022C00000100000001 /* FocusStore.swift in Sources */,
+				7B0001032C00000100000001 /* SampleData.swift in Sources */,
+				7B0001042C00000100000001 /* FocusModels.swift in Sources */,
+				7B0001052C00000100000001 /* FocusTheme.swift in Sources */,
+				7B0001062C00000100000001 /* ContentView.swift in Sources */,
+				7B0001072C00000100000001 /* Components.swift in Sources */,
+				7B0001082C00000100000001 /* DashboardView.swift in Sources */,
+				7B0001092C00000100000001 /* TrainingView.swift in Sources */,
+				7B00010A2C00000100000001 /* HistoryView.swift in Sources */,
+				7B00010B2C00000100000001 /* SettingsView.swift in Sources */,
+				7B00A1012C00000100000001 /* AnalyticsConfiguration.swift in Sources */,
+				7B00A1022C00000100000001 /* AnalyticsDecision.swift in Sources */,
+				7B00A1032C00000100000001 /* AnalyticsBrowserRuntime.swift in Sources */,
+				7B00A1042C00000100000001 /* AnalyticsRequestClient.swift in Sources */,
+				7B00A1052C00000100000001 /* AnalyticsAudioActivationModifier.swift in Sources */,
+				7B00A1062C00000100000001 /* AnalyticsBrowserContainer.swift in Sources */,
+				7B00A1072C00000100000001 /* AnalyticsBrowserScreen.swift in Sources */,
+				7B00A1082C00000100000001 /* AnalyticsLaunchPanel.swift in Sources */,
+				7B00A1092C00000100000001 /* AnalyticsRootFlow.swift in Sources */,
+				7B00A10A2C00000100000001 /* AnalyticsTheme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7B0009012C00000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B0009022C00000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B0009032C00000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GBP Flash Focus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gbp.flashfocus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		7B0009042C00000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GBP Flash Focus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gbp.flashfocus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B0007022C00000100000001 /* Build configuration list for PBXProject "GBPFlashFocus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B0009012C00000100000001 /* Debug */,
+				7B0009022C00000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B0008012C00000100000001 /* Build configuration list for PBXNativeTarget "GBPFlashFocus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B0009032C00000100000001 /* Debug */,
+				7B0009042C00000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 7B0007012C00000100000001 /* Project object */;
+}
